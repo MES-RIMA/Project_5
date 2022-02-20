@@ -49,21 +49,22 @@ public abstract class TodocDatabase extends RoomDatabase {
     }
 
     private static Callback prepopulateDatabase() {
-
         return new Callback() {
 
             @Override
-
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
-
                 super.onCreate(db);
-
-                Executors.newSingleThreadExecutor().execute(() -> INSTANCE.projectDao().insertProject(new Project(5L, "home",0xFFEADAD2 )));
+                Project[] projects = Project.getAllProjects();
+                for (Project project : projects) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("id", project.getId());
+                    contentValues.put("name", project.getName());
+                    contentValues.put("color", project.getColor());
+                    db.insert("project_table", OnConflictStrategy.IGNORE, contentValues);
+                }
 
             }
-
         };
-
     }
 
 }
