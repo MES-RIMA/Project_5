@@ -11,9 +11,9 @@ import com.cleanup.todoc.viewmodel.TaskViewModel;
 import java.util.concurrent.Executor;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
-    private ProjectDataRepository projectDatasource;
-    private TaskDataRepository taskDataSource;
-    private Executor executor;
+    private final ProjectDataRepository projectDatasource;
+    private final TaskDataRepository taskDataSource;
+    private final Executor executor;
 
     public ViewModelFactory(ProjectDataRepository projectDatasource, TaskDataRepository taskDataSource, Executor executor) {
         this.projectDatasource = projectDatasource;

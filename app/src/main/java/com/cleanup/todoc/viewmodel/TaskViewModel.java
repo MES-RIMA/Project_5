@@ -36,7 +36,7 @@ public class TaskViewModel extends ViewModel {
 
     public void init() {
         if (this.mProjects == null)
-            mProjects =projectDataSource.getProjects();
+            mProjects = projectDataSource.getProjects();
 
     }
 
@@ -83,15 +83,11 @@ public class TaskViewModel extends ViewModel {
 
 
     public void createTask(Task task) {
-        executor.execute(() -> {
-            taskDataSource.createTask(task);
-        });
+        executor.execute(() -> taskDataSource.createTask(task));
     }
 
     public void deleteTask(Task task) {
-        executor.execute(() -> {
-            taskDataSource.deleteTask(task);
-        });
+        executor.execute(() -> taskDataSource.deleteTask(task));
     }
 
 

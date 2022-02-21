@@ -1,5 +1,6 @@
 package com.cleanup.todoc.databaseTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
@@ -18,7 +19,7 @@ import org.junit.Test;
 import java.util.Date;
 import java.util.List;
 
-public class TaskDaoTest  {
+public class TaskDaoTest {
     // FOR DATA
     private TodocDatabase database;
 
@@ -41,12 +42,10 @@ public class TaskDaoTest  {
     }
 
 
-
     // DATA SET FOR TEST
-    private static long PROJECT_ID = 4L;
+    private static final long PROJECT_ID = 4L;
 
-    private static Project PROJECT_DEMO = new Project(PROJECT_ID, "Cupidon", 0xFFA3CED2);
-
+    private static final Project PROJECT_DEMO = new Project(PROJECT_ID, "Cupidon", 0xFFA3CED2);
 
 
     @Test
@@ -63,12 +62,11 @@ public class TaskDaoTest  {
     }
 
 
-    private static Task NEW_TASK_SHOPPING = new Task(1,4L, "Faire les courses", new Date().getTime());
+    private static final Task NEW_TASK_SHOPPING = new Task(1, 4L, "Faire les courses", new Date().getTime());
 
-    private static Task NEW_TASK_CHILDRENS = new Task(2,4L, "Chercher les enfants", new Date().getTime());
+    private static final Task NEW_TASK_CHILDRENS = new Task(2, 4L, "Chercher les enfants", new Date().getTime());
 
-    private static Task NEW_TASK_STUDY = new Task(3,4L, "Etudier", new Date().getTime());
-
+    private static final Task NEW_TASK_STUDY = new Task(3, 4L, "Etudier", new Date().getTime());
 
 
     @Test
@@ -92,9 +90,8 @@ public class TaskDaoTest  {
 
         // TEST
         List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getTasks(PROJECT_ID));
-        assertTrue(tasks.size() == 3);
+        assertEquals(3, tasks.size());
     }
-
 
 
     @Test

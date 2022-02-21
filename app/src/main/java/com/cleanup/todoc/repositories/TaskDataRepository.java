@@ -7,7 +7,8 @@ import com.cleanup.todoc.model.Task;
 
 import java.util.List;
 
-public class TaskDataRepository { private final TaskDao taskDao;
+public class TaskDataRepository {
+    private final TaskDao taskDao;
 
     public TaskDataRepository(TaskDao taskDao) {
         this.taskDao = taskDao;

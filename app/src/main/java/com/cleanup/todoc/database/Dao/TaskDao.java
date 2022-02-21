@@ -15,7 +15,7 @@ public interface TaskDao {
 
     // Create new Task
     @Insert
-    long insertTask(Task task);
+    void insertTask(Task task);
 
     // Get task from project
     @Query("SELECT * FROM task_table WHERE projectId = :projectId")
@@ -40,6 +40,6 @@ public interface TaskDao {
 
     // delete Task
     @Delete
-    int deleteTask(Task task);
+    void deleteTask(Task task);
 }
 

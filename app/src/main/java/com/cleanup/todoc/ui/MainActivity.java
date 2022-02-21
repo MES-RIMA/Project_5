@@ -157,7 +157,9 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     }
 
     @Override
-    public void onDeleteTask(Task task) { taskViewModel.deleteTask(task); }
+    public void onDeleteTask(Task task) {
+        taskViewModel.deleteTask(task);
+    }
 
     /**
      * Called when the user clicks on the positive button of the Create Task Dialog.
@@ -188,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                 dialogInterface.dismiss();
             }
             // If name has been set, but project has not been set (this should never occur)
-            else{
+            else {
                 dialogInterface.dismiss();
             }
         }
@@ -198,6 +200,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         }
 
     }
+
     /**
      * Shows the Dialog for adding a Task
      */
@@ -272,14 +275,10 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         dialog = alertBuilder.create();
 
         // This instead of listener to positive button in order to avoid automatic dismiss
-        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+        dialog.setOnShowListener(dialogInterface -> {
 
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
-
-                Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-                button.setOnClickListener(view -> onPositiveButtonClick(dialog));
-            }
+            Button button = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            button.setOnClickListener(view -> onPositiveButtonClick(dialog));
         });
 
         return dialog;
