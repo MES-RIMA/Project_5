@@ -16,7 +16,6 @@ import java.util.Comparator;
  * @author Gaëtan HERFRAY
  */
 @Entity(tableName = "task_table",foreignKeys = @ForeignKey(entity = Project.class, parentColumns = "id", childColumns = "projectId"))
-
 public class Task {
     /**
      * The unique identifier of the task
