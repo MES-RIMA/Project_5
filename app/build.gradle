@@ -1,6 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'MyAndroidKey'
+            keyPassword 'mirale2015'
+            storePassword 'mirale2015'
+        }
+    }
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.cleanup.todoc"
@@ -14,6 +21,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     lintOptions {
