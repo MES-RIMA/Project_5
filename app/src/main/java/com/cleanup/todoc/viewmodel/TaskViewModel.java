@@ -35,17 +35,24 @@ public class TaskViewModel extends ViewModel {
 
 
     public void init() {
-        if (this.mProjects == null)
-            mProjects = projectDataSource.getProjects();
-
+        // if (this.mProjects == null)
+        if (this.mProjects != null){
+            // mProjects = projectDataSource.getProjects();
+            return;
     }
 
-
+    mProjects =projectDataSource.getProjects();
+}
+  // For Project
+    //--------------------
     @Nullable
     public LiveData<List<Project>> getProjects() {
         return this.mProjects;
     }
-
+// For Task
+   public LiveData<List<Task>>getTask(long projectId){
+        return taskDataSource.getTasks(projectId);
+   }
     // For Task
     public LiveData<List<Task>> getAllTasks() {
         switch (sortMethod) {

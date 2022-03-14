@@ -14,10 +14,15 @@ public class TaskDataRepository {
         this.taskDao = taskDao;
     }
 
-    // --- GET ---
+    // --- GET AllTasks---
 
     public LiveData<List<Task>> getAllTasks() {
         return taskDao.getAllTasks();
+    }
+
+    // --- GET ---
+    public LiveData<List<Task>> getTasks(long projectId){
+        return taskDao.getTasks( projectId);
     }
 
     // Get Sorted Tasks
