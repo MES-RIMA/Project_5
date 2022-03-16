@@ -35,9 +35,7 @@ public class TaskViewModel extends ViewModel {
 
 
     public void init() {
-        // if (this.mProjects == null)
         if (this.mProjects != null){
-            // mProjects = projectDataSource.getProjects();
             return;
     }
 

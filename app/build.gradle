@@ -2,10 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        debug {
-            keyAlias 'MyAndroidKey'
-            keyPassword 'mirale2015'
-            storePassword 'mirale2015'
+        config_CleanUp {
+            storeFile file('C:\\Users\\randa\\apk')
+            storePassword 'openclassroom'
+            keyAlias 'CleanUp'
+            keyPassword 'openclassroom'
         }
     }
     compileSdkVersion 31
@@ -16,6 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        signingConfig signingConfigs.config_CleanUp
     }
     buildTypes {
         release {
