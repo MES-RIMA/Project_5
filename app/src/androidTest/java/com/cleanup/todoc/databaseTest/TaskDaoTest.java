@@ -110,7 +110,6 @@ public class TaskDaoTest {
 
         //TEST
 
-
         List<Task> tasks = LiveDataTestUtil.getValue(this.database.taskDao().getTasks(PROJECT_ID));
         assertTrue(tasks.isEmpty());
 
